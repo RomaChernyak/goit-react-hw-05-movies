@@ -47,7 +47,7 @@ const Reviews = () => {
 
   return (
     <>
-     {load && (
+    {load && (
         <RotatingLines
           strokeColor="rgb(11, 127, 171)"
           strokeWidth="5"

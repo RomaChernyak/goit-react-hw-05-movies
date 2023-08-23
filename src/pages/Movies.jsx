@@ -3,8 +3,7 @@ import { useSearchParams } from "react-router-dom";
 
 import  SearchBar  from "components/SearchBar/SearchBar";
 import  MovieList  from "components/MovieList/MovieList";
-
-import { getMoviesByQuery } from "api/featchApi";
+import { getSearchMovies } from "api/featchApi";
 
 import { RotatingLines } from "react-loader-spinner";
 
@@ -18,15 +17,15 @@ const Movies = () => {
 
   const query = searchParams.get('query') ?? '';
 
-   useEffect(() => {
-     const fetch = async () => {
+  useEffect(() => {
+    const fetch = async () => {
       setIsError("")
       if (query === '') {
         return;
       }
       setLoad(true);
       try {
-        const dataMovies = await getMoviesByQuery(query);
+        const dataMovies = await getSearchMovies(query);
 
         const movies = dataMovies.results;
 
